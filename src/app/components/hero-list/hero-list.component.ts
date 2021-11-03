@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICharacter } from 'src/interfaces/ICharacter';
+import { RootObject } from 'src/interfaces/ICharacter';
 import { HeroserviceService } from 'src/services/heroservice.service';
 @Component({
   selector: 'app-hero-list',
@@ -7,15 +7,15 @@ import { HeroserviceService } from 'src/services/heroservice.service';
   styleUrls: ['./hero-list.component.css']
 })
 export class HeroListComponent implements OnInit {
-  heroes : ICharacter[] = []
+  heroes : RootObject | undefined
   constructor(private heroService :   HeroserviceService) { }
 
   ngOnInit(): void {
     this.getHeroes();
   }
   getHeroes(): void {
-    this.heroService.getCharacter().subscribe((hero) =>{
-      console.log(hero[0].comics);
+    this.heroService.getCharacter().subscribe((heroes) =>{
+      this.heroes = heroes
     })
   }
 

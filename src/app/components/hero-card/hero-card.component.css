@@ -1,0 +1,16 @@
+.hero-card{
+  width: 30%;
+  height: 40%;
+}
+.header-container{
+  display: inline-flex;
+  width: 100%;
+}
+.right-container{
+  padding-left: 50%;
+}
+.header-image{
+  width: 30%;
+  height: 20%;
+  border-radius: 100%;
+}

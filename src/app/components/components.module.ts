@@ -11,7 +11,8 @@ import { HeroListComponent } from './hero-list/hero-list.component';
   ],
   exports: [
     SearchBarComponent,
-    HeroListComponent
+    HeroListComponent,
+    HeroCardComponent
   ]
 })
 export class ComponentsModule { }
