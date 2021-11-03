@@ -1,6 +1,3 @@
-import { IComic } from "./IComic";
-import { IThumbnail } from "./IThumbnail";
-
 export interface Thumbnail {
   path: string;
   extension: string;

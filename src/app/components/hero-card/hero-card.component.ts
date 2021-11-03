@@ -7,7 +7,8 @@ import { RootObject } from 'src/interfaces/ICharacter';
   styleUrls: ['./hero-card.component.css']
 })
 export class HeroCardComponent implements OnInit {
- @Input() heroInfo! :  RootObject
+ @Input() heroInfo? : RootObject
+ @Input() hola : string = "hola"
   constructor() { }
 
   ngOnInit(): void {

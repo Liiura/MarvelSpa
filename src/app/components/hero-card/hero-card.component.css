@@ -1,16 +1,76 @@
 .hero-card{
-  width: 30%;
-  height: 40%;
+  width: 40%;
+  height: 60%;
+  font-size: 1rem;
+  background-color: white;
 }
 .header-container{
-  display: inline-flex;
   width: 100%;
+  height: 80%;
+  display: inline-flex;
 }
 .right-container{
-  padding-left: 50%;
+  margin-left: 20%;
 }
 .header-image{
-  width: 30%;
-  height: 20%;
+  width: 50%;
+  height: 150px;
   border-radius: 100%;
+}
+.button-card-hero{
+  background-color: red;
+  color: white;
+  border-style: none;
+}
+.hero-description{
+  font-family: 'Arial Nova Light';
+}
+.hero-name{
+  font-family: 'Arial Black';
+}
+.comics-text{
+  font-family: 'Arial Nova Light';
+}
+.bottom-container{
+  display: inline-flex;
+}
+.main-bottom-container{
+  display: block;
+}
+.related-comics-text{
+  font-family: 'Arial Black';
+  color: #979797;
+}
+@media (max-width: 600px) {
+  .header-container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+  }
+  .right-container{
+    padding-left: 0;
+    align-self: center;
+    align-items: center;
+  }
+  .hero-card{
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  }
+  .header-image{
+    width: 35%;
+    height: 70px;
+    margin-left: 30%;
+  }
+  .bottom-container{
+    display: inline-block;
+    margin-left: 30%;
+  }
+  .main-bottom-container{
+    justify-content: center;
+    align-items: center;
+  }
+  .related-comics-text{
+    margin-left: 20%;
+  }
 }
