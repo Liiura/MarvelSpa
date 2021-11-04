@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RootObject } from 'src/interfaces/ICharacter';
+import { Result } from 'src/interfaces/ICharacter';
 
 @Component({
   selector: 'app-hero-card',
@@ -7,7 +7,7 @@ import { RootObject } from 'src/interfaces/ICharacter';
   styleUrls: ['./hero-card.component.css']
 })
 export class HeroCardComponent implements OnInit {
- @Input() heroInfo? : RootObject
+ @Input() heroInfo? : Result
   constructor() { }
 
   ngOnInit(): void {

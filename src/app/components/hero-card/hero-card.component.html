@@ -1,11 +1,13 @@
 <div class="hero hero-card">
   <div class="header-container">
-    <img  class="header-image" src="../../../assets/marvelLogo.png"/>
+    <img  class="header-image" src="{{heroInfo?.thumbnail?.path + '/portrait_xlarge.'+heroInfo?.thumbnail?.extension }}"/>
     <div class="right-container">
-      <p class="hero-name">example name</p>
-      <p class="hero-description">lorem ipsum dolor</p>
-      <button type="button" class="button-card-hero">View more</button>
+      <p class="hero-name">{{heroInfo?.name}}</p>
+      <p class="hero-description">{{heroInfo?.description | limitWords }}</p>
     </div>
+  </div>
+  <div class="middle-container">
+    <button type="button" class="button-card-hero">View more</button>
   </div>
   <div class="main-bottom-container">
     <p class="related-comics-text">Related comics</p>

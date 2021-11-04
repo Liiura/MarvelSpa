@@ -1,6 +1,6 @@
 .hero-card{
   background-color: white;
-  width: 300px;
+  width: 100%;
 }
 .header-container{
   width: 100%;
@@ -8,8 +8,8 @@
   display: inline-flex;
 }
 .right-container{
-  margin-left: 20%;
-  background-color: yellow;
+  margin-left: 15%;
+  text-align: center;
 }
 .header-image{
   width: 50%;
@@ -20,12 +20,23 @@
   background-color: red;
   color: white;
   border-style: none;
+  font-family: 'Arial Nova Light';
+  font-size: 1.5vw;
+  width: 40%;
+
+}
+.middle-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .hero-description{
   font-family: 'Arial Nova Light';
+  font-size: 1vw;
 }
 .hero-name{
   font-family: 'Arial Black';
+  font-size: 1.2vw;
 }
 .comics-text{
   font-family: 'Arial Nova Light';
@@ -70,8 +81,7 @@
 }
 @media (max-width: 800px ) {
   .hero-card{
-    background-color: white;
-    width: 200px;
+    display: block;
   }
   .header-image{
     width: 35%;
