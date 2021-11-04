@@ -1,8 +1,6 @@
 .hero-card{
-  width: 40%;
-  height: 60%;
-  font-size: 1rem;
   background-color: white;
+  width: 300px;
 }
 .header-container{
   width: 100%;
@@ -11,6 +9,7 @@
 }
 .right-container{
   margin-left: 20%;
+  background-color: yellow;
 }
 .header-image{
   width: 50%;
@@ -52,11 +51,6 @@
     align-self: center;
     align-items: center;
   }
-  .hero-card{
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-  }
   .header-image{
     width: 35%;
     height: 70px;
@@ -72,5 +66,40 @@
   }
   .related-comics-text{
     margin-left: 20%;
+  }
+}
+@media (max-width: 800px ) {
+  .hero-card{
+    background-color: white;
+    width: 200px;
+  }
+  .header-image{
+    width: 35%;
+    height: 70px;
+    margin-left: 30%;
+  }
+  .bottom-container{
+    display: inline-block;
+    margin-left: 30%;
+  }
+  .main-bottom-container{
+    justify-content: center;
+    align-items: center;
+  }
+  .right-container{
+    padding-left: 0;
+    align-self: center;
+    align-items: center;
+  }
+  .header-container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 700px ) {
+  .hero-card{
+    background-color: white;
+    width: 100px;
   }
 }

@@ -10,5 +10,7 @@
             <option value="2">Date</option>
         </select>
     </div>
-    <app-hero-card class="hero-cards" [heroInfo] = "heroes"></app-hero-card>
+    <div class="container-hero-cards">
+        <app-hero-card class="hero-cards" *ngFor="let hero of heroes?.data?.results"></app-hero-card>
+    </div>
   </div>

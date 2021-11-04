@@ -20,5 +20,16 @@
 }
 .hero-cards{
   padding-top: 50px;
-  padding-left: 20px;
+  padding-right: 10% !important;
 }
+.container-hero-cards{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+@media screen and (max-width: 1500px) {
+    .container-hero-cards{
+        display: -moz-grid-group;
+    }
+  }
+  

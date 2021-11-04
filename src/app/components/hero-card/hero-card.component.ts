@@ -8,10 +8,10 @@ import { RootObject } from 'src/interfaces/ICharacter';
 })
 export class HeroCardComponent implements OnInit {
  @Input() heroInfo? : RootObject
- @Input() hola : string = "hola"
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.heroInfo);
   }
 
 }
