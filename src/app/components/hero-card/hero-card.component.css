@@ -40,15 +40,24 @@
 }
 .comics-text{
   font-family: 'Arial Nova Light';
+  font-family: 'Arial Nova Light';
+  font-size: x-small;
+  padding-right: 10px;
 }
 .bottom-container{
   display: inline-flex;
+  text-align: center;
 }
 .main-bottom-container{
-  display: block;
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
 }
 .related-comics-text{
   font-family: 'Arial Black';
+  color: #979797;
+}
+.comics-text{
   color: #979797;
 }
 @media (max-width: 600px) {

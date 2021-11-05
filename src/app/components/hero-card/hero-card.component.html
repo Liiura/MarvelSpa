@@ -12,7 +12,8 @@
   <div class="main-bottom-container">
     <p class="related-comics-text">Related comics</p>
     <div class="bottom-container">
-      <p class="comics-text">asdasd</p>
+      <p class="comics-text" *ngIf="!heroInfo?.comics?.items?.length">No comics available</p>
+      <p class="comics-text" *ngFor="let comic of heroInfo?.comics?.items | slice:0:4; let i=index">{{comic.name}}</p>
     </div>
   </div>
 </div>

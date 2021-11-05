@@ -12,10 +12,15 @@ export class HeroserviceService {
   constructor(
     private http: HttpClient
   ) { }
-  getCharacter(): Observable<RootObject> {
+  getCharacter(offset: number = 0, limit: number = 10): Observable<RootObject> {
     const endpoint = 'characters'
+    if(offset === 0){
+          return this.http.get<RootObject>(
+      `${this._url}${endpoint}?limit=${limit}&ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
+    )
+    }
     return this.http.get<RootObject>(
-      `${this._url}${endpoint}?limit=10&ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
+      `${this._url}${endpoint}?offset=${offset}limit=${limit}&ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
     )
   }
 }
