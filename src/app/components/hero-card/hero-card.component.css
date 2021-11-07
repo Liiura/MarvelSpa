@@ -10,6 +10,7 @@
 .right-container{
   margin-left: 15%;
   text-align: center;
+  width: 35%;
 }
 .header-image{
   width: 50%;
@@ -52,10 +53,12 @@
   display: inline-block;
   justify-content: center;
   text-align: center;
+  width: 100%;
 }
 .related-comics-text{
   font-family: 'Arial Black';
   color: #979797;
+  padding-top: 10px;
 }
 .comics-text{
   color: #979797;
@@ -78,14 +81,11 @@
   }
   .bottom-container{
     display: inline-block;
-    margin-left: 30%;
+    text-align: center;
+    justify-content: center;
   }
   .main-bottom-container{
-    justify-content: center;
-    align-items: center;
-  }
-  .related-comics-text{
-    margin-left: 20%;
+    display: inline-block;
   }
 }
 @media (max-width: 800px ) {
@@ -99,7 +99,6 @@
   }
   .bottom-container{
     display: inline-block;
-    margin-left: 30%;
   }
   .main-bottom-container{
     justify-content: center;
