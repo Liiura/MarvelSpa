@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { RootObject } from 'src/interfaces/ICharacter';
+import { RootObjectComic } from 'src/interfaces/IComicDetails';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,12 @@ export class HeroserviceService {
     }
     return this.http.get<RootObject>(
       `${this._url}${endpoint}?offset=${offset}limit=${limit}&ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
+    )
+  }
+  getComicById(resourceUri: string): Observable<RootObjectComic>{
+    const endpoint = 'comics'
+    return this.http.get<RootObjectComic>(
+      `${resourceUri}?ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
     )
   }
 }

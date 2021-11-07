@@ -4,8 +4,9 @@ import { HeroCardComponent } from './hero-card/hero-card.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { FavoritesComicsComponent } from './favorites-comics/favorites-comics.component';
 @NgModule({
-  declarations: [HeroCardComponent,SearchBarComponent, HeroListComponent],
+  declarations: [HeroCardComponent,SearchBarComponent, HeroListComponent, FavoritesComicsComponent],
   imports: [
     CommonModule,
     PipesModule
@@ -13,7 +14,8 @@ import { PipesModule } from '../pipes/pipes.module';
   exports: [
     SearchBarComponent,
     HeroListComponent,
-    HeroCardComponent
+    HeroCardComponent,
+    FavoritesComicsComponent
   ]
 })
 export class ComponentsModule { }

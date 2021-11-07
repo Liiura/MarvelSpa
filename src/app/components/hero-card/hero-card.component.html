@@ -13,7 +13,25 @@
     <p class="related-comics-text">Related comics</p>
     <div class="bottom-container">
       <p class="comics-text" *ngIf="!heroInfo?.comics?.items?.length">No comics available</p>
-      <p class="comics-text" *ngFor="let comic of heroInfo?.comics?.items | slice:0:4; let i=index">{{comic.name}}</p>
+      <a class="comics-text" *ngFor="let comic of heroInfo?.comics?.items | slice:0:4; let i=index" (click) = "open(content,comic.resourceURI)" style="cursor: pointer;">{{comic.name}}</a>
     </div>
   </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Comic details</h4>
+      <button type="button" class="btn btn-sm btn-outline-danger ml-2" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="content-modal-body" *ngFor="let comicDetail of comicDetails?.data?.results">
+          <div class="container-comic-image-details"><img  src="{{comicDetail?.thumbnail?.path + '/portrait_medium.'+heroInfo?.thumbnail?.extension }}"/></div>
+          <p style="font-weight: bold;">{{comicDetail.title}}</p>
+          <p>{{comicDetail.description}}</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click','hola')">Add favorite</button>
+    </div>
+  </ng-template>
 </div>

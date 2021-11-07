@@ -14,8 +14,8 @@
         <app-hero-card class="hero-cards" *ngFor="let hero of heroes?.data?.results" [heroInfo] = "hero"></app-hero-card>
     </div>
     <div class="bottom-container">
-        <button class="left-arrow"><img  src="../../../assets/btn_arrow_left.png"/></button>
+        <button class="left-arrow" (click) = "getPaginatedHeroes(getActualPage()-1)" type="button"><img  src="../../../assets/btn_arrow_left.png"/></button>
         <button class="page-number-button" *ngFor="let page of pagesArray let i=index" (click)= "getPaginatedHeroes(i)" [ngClass]="{selectedpage: i == getActualPage()}">{{i+1}}</button>
-        <button class="right-arrow"><img  src="../../../assets/btn_arrow_right.png" class="bu"/></button>
+        <button class="right-arrow" (click) = "getPaginatedHeroes(getActualPage()+1)" type="button"><img  src="../../../assets/btn_arrow_right.png" class="bu"/></button>
     </div>
   </div>

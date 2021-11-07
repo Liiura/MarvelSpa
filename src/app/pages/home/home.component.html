@@ -1,4 +1,4 @@
 <div class="home-page-container">
-    <app-search-bar></app-search-bar>
-    <app-hero-list></app-hero-list>
+    <app-search-bar (newItemEvent)="addItem($event)"></app-search-bar>
+    <app-hero-list [heroNameToFind] = "heroName"></app-hero-list>
 </div>
