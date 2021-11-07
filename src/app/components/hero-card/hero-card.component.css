@@ -1,0 +1,123 @@
+.hero-card{
+  background-color: white;
+  width: 100%;
+}
+.header-container{
+  width: 100%;
+  height: 80%;
+  display: inline-flex;
+}
+.right-container{
+  margin-left: 15%;
+  text-align: center;
+  width: 35%;
+}
+.header-image{
+  width: 50%;
+  height: 150px;
+  border-radius: 100%;
+}
+.button-card-hero{
+  background-color: red;
+  color: white;
+  border-style: none;
+  font-family: 'Arial Nova Light';
+  font-size: 1.5vw;
+  width: 40%;
+
+}
+.middle-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.hero-description{
+  font-family: 'Arial Nova Light';
+  font-size: 1vw;
+}
+.hero-name{
+  font-family: 'Arial Black';
+  font-size: 1.2vw;
+}
+.comics-text{
+  font-family: 'Arial Nova Light';
+  font-family: 'Arial Nova Light';
+  font-size: x-small;
+  padding-right: 10px;
+}
+.bottom-container{
+  display: inline-flex;
+  text-align: center;
+}
+.main-bottom-container{
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.related-comics-text{
+  font-family: 'Arial Black';
+  color: #979797;
+  padding-top: 10px;
+}
+.comics-text{
+  color: #979797;
+}
+@media (max-width: 600px) {
+  .header-container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+  }
+  .right-container{
+    padding-left: 0;
+    align-self: center;
+    align-items: center;
+  }
+  .header-image{
+    width: 35%;
+    height: 70px;
+    margin-left: 30%;
+  }
+  .bottom-container{
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+  }
+  .main-bottom-container{
+    display: inline-block;
+  }
+}
+@media (max-width: 800px ) {
+  .hero-card{
+    display: block;
+  }
+  .header-image{
+    width: 35%;
+    height: 70px;
+    margin-left: 30%;
+  }
+  .bottom-container{
+    display: inline-block;
+  }
+  .main-bottom-container{
+    justify-content: center;
+    align-items: center;
+  }
+  .right-container{
+    padding-left: 0;
+    align-self: center;
+    align-items: center;
+  }
+  .header-container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 700px ) {
+  .hero-card{
+    background-color: white;
+    width: 100px;
+  }
+}
