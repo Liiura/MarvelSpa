@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="middle-container">
-    <button type="button" class="button-card-hero">View more</button>
+    <button type="button" class="button-card-hero" (click) = "routeToDetails(heroInfo?.id)">View more</button>
   </div>
   <div class="main-bottom-container">
     <p class="related-comics-text">Related comics</p>
@@ -31,7 +31,10 @@
         </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click','hola')">Add favorite</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" *ngIf="!searchComic() else elseBlock">Add favorite</button>
+      <ng-template #elseBlock>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('deleteFavorite')">Delete favorite</button>
+      </ng-template>
     </div>
   </ng-template>
 </div>

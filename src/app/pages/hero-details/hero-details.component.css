@@ -1,0 +1,31 @@
+.container-page{
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+}
+.details-container{
+    background-color: red;
+    width: 20%;
+    height: 20%;
+    margin-left: 40%;
+    margin-top: 15%;
+}
+.marvel-logo{
+    width: 2%;
+    height: 60%;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.search-container{
+    width: 100%;
+    height: 5%;
+    background-color: rgb(45, 39, 39);
+    display: inline-flex;
+    align-items: center;
+}
+.home-btn{
+    border-style: none;
+    background-color: rgb(45, 39, 39);
+}

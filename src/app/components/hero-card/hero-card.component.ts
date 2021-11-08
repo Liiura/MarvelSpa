@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Result } from 'src/interfaces/ICharacter';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { HeroserviceService } from 'src/services/heroservice.service';
 import { RootObjectComic } from 'src/interfaces/IComicDetails';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-hero-card',
   templateUrl: './hero-card.component.html',
@@ -14,7 +15,10 @@ export class HeroCardComponent implements OnInit, OnDestroy {
  comicDetails? : RootObjectComic; 
  closeResult = '';
  subscription?: Subscription;
-  constructor(private modalService: NgbModal, private heroService : HeroserviceService) { }
+ @Output() favoriteComic = new EventEmitter<RootObjectComic>();
+ @Output() deletefavoriteComic = new EventEmitter<number>();
+ @Input() currentFavoriteComics : RootObjectComic[] = []
+  constructor(private modalService: NgbModal, private heroService : HeroserviceService,private router: Router) { }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
@@ -24,8 +28,14 @@ export class HeroCardComponent implements OnInit, OnDestroy {
   open(content: any,resourceUri: string) {
     this.getComicDetails(resourceUri);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      console.log(result);
+      if(this.comicDetails && result !== "deleteFavorite" ){
+        this.favoriteComic.emit(this.comicDetails);
+      }
       this.closeResult = `Closed with: ${result}`;
+      if(result === "deleteFavorite"){
+        this.spliceFavoriteComic();
+      }
+      
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
@@ -44,4 +54,28 @@ export class HeroCardComponent implements OnInit, OnDestroy {
       this.comicDetails = comic;
     })
   }
+  spliceFavoriteComic():void{
+    if(this.comicDetails){
+      let savedIndex = 0;
+      for( var i = 0; i < this.currentFavoriteComics.length; i++){ 
+        if(this.currentFavoriteComics[i].data.results[0].id === this.comicDetails.data.results[0].id) {
+          savedIndex = i;
+        }
+      }
+      this.deletefavoriteComic.emit(savedIndex);
+    }
+  }
+  searchComic():boolean{
+    if(this.comicDetails){
+      let comicToFind = this.currentFavoriteComics.find(comic => comic.data.results[0].id === this.comicDetails?.data.results[0].id);
+      if(comicToFind){
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+  routeToDetails(id?: number):void {
+    this.router.navigateByUrl(`/heroDetails/${id}`);
+};
 }

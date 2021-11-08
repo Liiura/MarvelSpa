@@ -1,21 +1,44 @@
-<div class="card card-list">
-    <div class="header-card-list">
-        <div class="character-img-text">
-            <img src="../../../assets/characters.png" alt="character-img" class="character-image"/>
-            <label class="text-character">Characters</label>
+<div class="list-favorite-container">
+    <div class="card card-list">
+        <div class="header-card-list">
+            <div class="character-img-text">
+                <img src="../../../assets/characters.png" alt="character-img" class="character-image"/>
+                <label class="text-character">Characters</label>
+            </div>
+            <select class="form-select sort-select" aria-label="Sort by" #t (change)="onChange(t.value)">
+                <option selected>Sort by</option>
+                <option [value]="1">Name</option>
+                <option [value]="2">Date</option>
+            </select>
         </div>
-        <select class="form-select sort-select" aria-label="Sort by">
-            <option selected>Sort by</option>
-            <option value="1">Name</option>
-            <option value="2">Date</option>
-        </select>
+        <div class="container-hero-cards">
+            <app-hero-card 
+            class="hero-cards" 
+            *ngFor="let hero of heroes?.data?.results" 
+            [heroInfo] = "hero"
+            (favoriteComic) ="insertFavoriteComic($event)" 
+            (deletefavoriteComic) = "deleteFavoriteComic($event)"
+            [currentFavoriteComics] = "allFavoriteComics"></app-hero-card>
+        </div>
+        <div class="bottom-container">
+            <button class="left-arrow" (click) = "getPaginatedHeroes(getActualPage()-1)" type="button"><img  src="../../../assets/btn_arrow_left.png"/></button>
+            <button class="page-number-button" *ngFor="let page of pagesArray let i=index" (click)= "getPaginatedHeroes(i)" [ngClass]="{selectedpage: i == getActualPage()}">{{i+1}}</button>
+            <button class="right-arrow" (click) = "getPaginatedHeroes(getActualPage()+1)" type="button"><img  src="../../../assets/btn_arrow_right.png" class="bu"/></button>
+        </div>
     </div>
-    <div class="container-hero-cards">
-        <app-hero-card class="hero-cards" *ngFor="let hero of heroes?.data?.results" [heroInfo] = "hero"></app-hero-card>
+    <div class="favorite-comics-container">
+        <div class="header-favorites-container">
+            <img  src="../../../assets/btn-favourites-primary.png">
+            <label class="favorites-title">My favourites</label>
+        </div>
+        <div class="favorite-body-container">
+            <div class="favorite-comic-item" *ngFor="let comicDetail of allFavoriteComics let i=index">
+                <button type="button" class="btn-delete-comic"><img src="../../../assets/btn-delete.png" class="delete-image" (click) = "deleteFavoriteComic(i)" /></button>
+                <div class="container-comic-image-details">
+                    <img  src="{{comicDetail.data.results[0].thumbnail?.path + '/portrait_medium.'+comicDetail.data.results[0].thumbnail.extension }}" class="favorite-comic-image"/>
+                </div>
+                <p style="font-weight: bold;">{{comicDetail.data.results[0].title}}</p>
+            </div>
+        </div>
     </div>
-    <div class="bottom-container">
-        <button class="left-arrow" (click) = "getPaginatedHeroes(getActualPage()-1)" type="button"><img  src="../../../assets/btn_arrow_left.png"/></button>
-        <button class="page-number-button" *ngFor="let page of pagesArray let i=index" (click)= "getPaginatedHeroes(i)" [ngClass]="{selectedpage: i == getActualPage()}">{{i+1}}</button>
-        <button class="right-arrow" (click) = "getPaginatedHeroes(getActualPage()+1)" type="button"><img  src="../../../assets/btn_arrow_right.png" class="bu"/></button>
-    </div>
-  </div>
+</div>

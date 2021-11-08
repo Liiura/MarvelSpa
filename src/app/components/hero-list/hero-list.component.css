@@ -66,3 +66,52 @@
 .selectedpage{
     font-weight: bold;
 }
+.list-favorite-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.favorite-comics-container{
+    width: 30%;
+}
+.header-favorites-container{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+.favorites-title{
+    margin-left: 3%;
+    font-family: 'Arial Black';
+}
+.favorite-comic-item{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 10px;
+}
+.favorite-comic-image{
+    width: 20%;
+    height: 20%;
+}
+.container-comic-image-details{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .btn-delete-comic{
+    border-style: none;
+    width: 7%;
+    height: 7%;
+    border-radius: 100px;
+    background-color: white;
+    margin-left: 57%;
+    margin-bottom: -8px;
+    z-index: 1;
+    text-align: center;
+  }
+  .delete-image{
+      width: 100%;
+      height: 100%;
+  }

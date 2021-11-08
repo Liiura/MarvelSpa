@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angu
 import { Subscription } from 'rxjs';
 import { RootObject } from 'src/interfaces/ICharacter';
 import { HeroserviceService } from 'src/services/heroservice.service';
+import { RootObjectComic } from 'src/interfaces/IComicDetails';
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
@@ -13,6 +14,7 @@ export class HeroListComponent implements OnInit, OnDestroy {
   subscription?: Subscription;
   actualPage: number = 0;
   @Input() heroNameToFind: string = ""
+  allFavoriteComics: RootObjectComic[] = [];
   constructor(private heroService :   HeroserviceService) {
    }
 
@@ -51,6 +53,31 @@ export class HeroListComponent implements OnInit, OnDestroy {
   }
   ngOnChanges() {
      this.FindHero();
-    }   
-
+  }
+  insertFavoriteComic(favoriteComic:RootObjectComic):void{
+    this.allFavoriteComics.push(favoriteComic);
+  } 
+  deleteFavoriteComic(index:number):void{
+    this.allFavoriteComics.splice(index,1);
+    console.log(this.allFavoriteComics);
+  }
+  sortByDate():void{
+    if(this.heroes){
+      this.heroes.data.results.sort(function(a,b){
+        return new Date(a.modified).getTime() - new Date(b.modified).getTime();
+      });
+    }
+  }
+  sortByName():void{
+    if(this.heroes){
+      this.heroes.data.results.sort((a, b) => a.name.localeCompare(b.name))
+    }
+  }
+  onChange(sortType?: string):void {
+    if(sortType === "1"){
+      this.sortByName();
+    }else{
+      this.sortByDate();
+    }
+}
 }
