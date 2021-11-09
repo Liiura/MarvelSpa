@@ -50,7 +50,8 @@ export class HeroCardComponent implements OnInit, OnDestroy {
     }
   }
   getComicDetails(resourceUri: string){
-    this.heroService.getComicById(resourceUri).subscribe((comic) =>{
+    let uri: string = resourceUri.split(":")[1]
+    this.heroService.getComicById("https:"+uri).subscribe((comic) =>{
       this.comicDetails = comic;
     })
   }

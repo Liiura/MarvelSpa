@@ -59,7 +59,6 @@ export class HeroListComponent implements OnInit, OnDestroy {
   } 
   deleteFavoriteComic(index:number):void{
     this.allFavoriteComics.splice(index,1);
-    console.log(this.allFavoriteComics);
   }
   sortByDate():void{
     if(this.heroes){

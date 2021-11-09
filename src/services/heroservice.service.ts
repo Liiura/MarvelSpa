@@ -8,7 +8,7 @@ import { RootObjectComic } from 'src/interfaces/IComicDetails';
 })
 export class HeroserviceService {
 
-    private _url = 'http://gateway.marvel.com/v1/public/';
+    private _url = 'https://gateway.marvel.com/v1/public/';
 
   constructor(
     private http: HttpClient

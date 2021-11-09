@@ -2,9 +2,21 @@
     <div class="search-container">
         <img src="https://img.icons8.com/flat-round/64/000000/home--v1.png" class="marvel-logo" (click) ="routeToHome()"/>
     </div>
-    <div class="details-container">
-        <p>Image</p>
-        <p>titulo</p>
-        <p>description</p>
+    <div class="details-container" *ngFor="let hero of heroInfo?.data?.results">
+        <img src="{{hero.thumbnail?.path + '/portrait_xlarge.'+hero.thumbnail?.extension }}" class="image-details" />
+        <p class="hero-name">{{hero.name}}</p>
+        <p class="hero-description">{{hero.description | limitWords }}</p>
+        <p class="title-text">Comics</p>
+        <div class="comics">
+            <p class="text-c-s-e" *ngFor="let comic of hero.comics.items | slice:0:5; let i=index"> {{comic.name}}</p>
+        </div>
+        <p class="title-text">Series</p>
+        <div class="series">
+            <p class="text-c-s-e" *ngFor="let serie of hero.series.items | slice:0:5; let i=index"> {{serie.name}}</p>
+        </div>
+        <p class="title-text">Stories</p>
+        <div class="events">
+            <p class="text-c-s-e" *ngFor="let storie of hero.stories.items | slice:0:5; let i=index"> {{storie.name}}</p>
+        </div>
     </div>
 </div>
