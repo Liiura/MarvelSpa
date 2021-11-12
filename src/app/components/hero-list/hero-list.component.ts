@@ -26,6 +26,11 @@ export class HeroListComponent implements OnInit, OnDestroy {
       this.heroes = heroes;
     })
   }
+  getHeroeByName(name:string):void{
+    this.subscription = this.heroService.getCharacterByName(name).subscribe((hero) => {
+      this.heroes = hero;
+    })
+  }
   ngOnDestroy():void {
     this.subscription?.unsubscribe();
   }
@@ -34,19 +39,23 @@ export class HeroListComponent implements OnInit, OnDestroy {
       pageNumber = 0;
     }
     this.actualPage = pageNumber;
-    this.subscription = this.heroService.getCharacter(10*pageNumber).subscribe((heroes) =>{
-      this.heroes = heroes;
-    })
+    if(this.heroNameToFind){
+      this.subscription = this.heroService.getCharacterByName(this.heroNameToFind,10*pageNumber).subscribe((heroes) =>{
+        this.heroes = heroes;
+      })
+    }else{
+      this.subscription = this.heroService.getCharacter(10*pageNumber).subscribe((heroes) =>{
+        this.heroes = heroes;
+      })
+    }
   }
   getActualPage():number{
     return this.actualPage;
   }
   FindHero():void{
       if(this.heroNameToFind !== ""){
-        if(this.heroes?.data?.results){
-          this.heroes.data.results = this.heroes?.data.results.filter(o =>
-            Object.keys(o).some(k =>  o.name.toLowerCase().includes(this.heroNameToFind.toLowerCase())));
-        }
+        this.getHeroeByName(this.heroNameToFind);
+
       }else{
         this.getPaginatedHeroes(this.actualPage);
       }

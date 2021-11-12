@@ -19,6 +19,7 @@
             (favoriteComic) ="insertFavoriteComic($event)" 
             (deletefavoriteComic) = "deleteFavoriteComic($event)"
             [currentFavoriteComics] = "allFavoriteComics"></app-hero-card>
+            <h1 *ngIf="!heroes?.data?.results?.length">No heroes available</h1>
         </div>
         <div class="bottom-container">
             <button class="left-arrow" (click) = "getPaginatedHeroes(getActualPage()-1)" type="button"><img  src="../../../assets/btn_arrow_left.png"/></button>

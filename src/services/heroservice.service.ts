@@ -37,4 +37,15 @@ export class HeroserviceService {
       `${this._url}${endpoint}/${id}?ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
     )
   }
+  getCharacterByName(name: string,offset: number = 0, limit: number = 10): Observable<RootObject>{
+    const endpoint = 'characters'
+    if(offset === 0){
+          return this.http.get<RootObject>(
+      `${this._url}${endpoint}?nameStartsWith=${name}&limit=${limit}&ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
+      )
+    }
+    return this.http.get<RootObject>(
+      `${this._url}${endpoint}?nameStartsWith=${name}&offset=${offset}limit=${limit}&ts=1&apikey=97ea72d726c94283653ea1abec647e0f&hash=d640a299334c6908557ca1bff857fbc8`
+    )
+  }
 }
